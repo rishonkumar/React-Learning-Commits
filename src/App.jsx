@@ -1,0 +1,44 @@
+import { useState } from 'react'
+import './App.css'
+
+function App() {
+  const [todos, setTodos] = useState([
+    {
+    title : "ffa",
+    description : "go to ",
+    completed : false
+    },
+    {
+      title : "2",
+      description : "go to ",
+      completed : true
+      },
+  
+  ])
+
+  function addTodo() {
+    setTodos([...todos, {
+      title : "addd",
+      description : 'dddee'
+    }])
+  }
+  return (
+    <div>
+        <button onClick={addTodo}>Add todo</button>
+        {todos.map(function (todo) {
+        return <Todo title = {todo.title}/>
+      })}    
+    </div>
+  )
+}
+
+function Todo(props) {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <h1>{props.description}</h1>
+    </div>
+  )
+}
+
+export default App
